@@ -2,11 +2,20 @@
 
 The Kava JavaScript SDK allows browsers and node.js clients to interact with Kava. Core functionality and query examples are in the `examples` folder.
 
-- client - client that implements Kava transactions and messages.
-- tx - Kava transaction types.
-- msg - Kava message types.
-- crypto - core cryptographic functions.
-- utils - utility functions such as client-side secret generation.
+- 🟡 client - client that implements Kava transactions and messages.
+- 🟡 tx - Kava transaction types.
+- 🟢 msg - Kava message types.
+- 🟡 crypto - core cryptographic functions.
+- 🟢 utils - utility functions such as client-side secret generation.
+
+## Proceed with Caution
+
+Due to limited resources on our team, some parts of the SDK are better maintained than others.
+
+- 🟡 Modules marked yellow are partially maintained and may be only partially functional.
+- 🟢 Modules marked green are best maintained and most reliable. Functionality should be up-to-date and functional in the latest stable or beta release.
+
+We welcome outside contributions to help keep the SDK as useful and up-to-date as possible.
 
 ## Installation
 
@@ -16,18 +25,22 @@ Install the package via npm.
 npm install @kava-labs/javascript-sdk
 ```
 
+## Examples
+
+Examples are still being updated to TypeScript, but can be run with the proper env config and typechecking disabled.
+
 ## Network Information
 
 ### Mainnet
 
-- Chain ID: kava-8
+- Chain ID: kava-9
 - REST API endpoint: https://api.kava.io
 - Binance Chain mainnet REST API endpoint: https://dex.binance.org/
 
 ### Testnet
 
-- Chain ID: kava-testnet-13000
-- REST API endpoint: https://api.data-testnet.kava.io
+- Chain ID: kava-testnet-14000
+- REST API endpoint: https://api.testnet.kava.io
 - Binance Chain testnet REST API endpoint: https://testnet-dex.binance.org/
 
 ### Binance Chain
@@ -99,7 +112,7 @@ console.log('Tx result:', txRes.raw_log);
 
 ### Create CDP
 
-Collateralized debt positions have a minimum value of 10 USD and must be overcollateralized above a certain percentage threshold. Supported collateral coin types, their supply limits, and their minimum overcollateralization ratios can be checked at https://kava3.data.kava.io/cdp/parameters.
+Collateralized debt positions have a minimum value of 10 USD and must be overcollateralized above a certain percentage threshold. Supported collateral coin types, their supply limits, and their minimum overcollateralization ratios can be checked at https://api.data.kava.io/cdp/parameters.
 
 While USDX has 6 decimals, our example collateral coin BNB has 8. We'll need to apply each asset's conversion factor before sending the transaction.
 
@@ -201,7 +214,7 @@ const txRes = await client.checkTxHash(txHash, 15000);
 console.log('\nTx result:', txRes.raw_log);
 ```
 
-Note: swap height span must be within range 220-270, you can check the current mainet BEP3 module parameters at https://kava3.data.kava.io/bep3/parameters.
+Note: swap height span must be within range 220-270, you can check the current mainet BEP3 module parameters at https://api.data.kava.io/bep3/parameters.
 
 ### Claim swap
 
